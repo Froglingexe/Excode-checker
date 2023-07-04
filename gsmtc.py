@@ -1,15 +1,11 @@
 import mysql.connector
 import time
 
-# Veritabanı bağlantısı için gerekli bilgileri girin
-database = input("GSM Databaseinizin ismini girin (Örnek: avea, 120mgsm): ")
-frmname = input("GSM Databaseinizin .frm ismini girin (Örnek: gsm.frm, 120mgsm.frm): ")
-
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
-    database= database
+    database="avea"
 )
 # Cursor oluştur
 mycursor = mydb.cursor()
