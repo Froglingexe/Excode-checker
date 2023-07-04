@@ -1,0 +1,15 @@
+os
+pystyle
+termcolor
+mysql.connector
+webbrowser
+winreg
+psutil
+sys
+ctypes
+requests
+subprocess
+urllib.request
+time
+urllib
+mysql
