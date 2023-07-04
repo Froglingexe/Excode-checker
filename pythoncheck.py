@@ -18,7 +18,7 @@ yeni_baslik = "Excode :)"
 
 
 
-url = ""
+url = "https://raw.githubusercontent.com/Froglingexe/Excode-checker/main/pythoncheck.py"
 filename = "pythoncheck.py"
 
 def check_file():
@@ -90,7 +90,7 @@ urllist= []
     
 while True:
     
-    url = ""
+    url = "github.com/Froglingexe/Excode-checker/blob/main"
     if url in urllist:
         pass
     else:
