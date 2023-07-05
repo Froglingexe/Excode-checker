@@ -35,7 +35,7 @@ Destek için discord.gg/101m adresine katilabilirsiniz .
 - Hizlandirilmis Calisma ( Az Kod Çok İşlev )
 - CMD Ekraninda kolay kullanim
 - Açık kaynak kodlu geliştirilmeye açık.
-- Adresi Rastgele Uretiyor.
+- Seçmen Datasından veri çekerek adresi buluyor.
   
 ## Hatalar Ve Cozumleri
 
