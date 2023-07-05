@@ -20,7 +20,7 @@ cursor.execute(f"SELECT * FROM secmen2015 WHERE TC = '{tc}'")
 result = cursor.fetchone()
 
 
-with open("sonuc.txt", "a", encoding="utf-8") as f:
+with open("adres.txt", "a", encoding="utf-8") as f:
     if result:
         adresil = result[11]
         adresilce = result[12]
