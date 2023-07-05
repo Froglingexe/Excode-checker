@@ -1,52 +1,39 @@
 import mysql.connector
-import time
 
-# Veritabanı bağlantısı için gerekli bilgileri girin
-database = input("GSM Databaseinizin ismini girin (Örnek: avea, 120mgsm): ")
-frmname = input("GSM Databaseinizin .frm ismini girin (Örnek: gsm.frm, 120mgsm.frm): ")
 
-mydb = mysql.connector.connect(
+db = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
-    database= database
+    database="secmen"
 )
-# Cursor oluştur
-mycursor = mydb.cursor()
 
-gsm = input("GSM giriniz: ")
 
-dosya_adi = database + "_" + gsm + ".txt"
+if db.is_connected():
+    print("Veritabanına başarıyla bağlandı. NOT: Adresi bulması 2-3 dakika arası değişebilir.")
 
-# Verileri veritabanında ara ve sonucu yazdır
-try:
-    # GSM ile eşleşen kaydı seç
-    sql = f"SELECT * FROM {frmname} WHERE GSM = '{gsm}'"
+tc = input("Lütfen TC kimlik numarasını girin: ")
 
-    # Sorguyu çalıştır
-    mycursor.execute(sql)
 
-    # Sonuçları dosyaya yaz
-    with open(dosya_adi, "wb") as dosya:
-        for i in mycursor:
-            tc = i[0]
-            
-            dosya.write(f"TC:{tc}, GSM: {gsm}\n".encode())
-            
-    print(f"Gsm {dosya_adi} dosyasına kaydedildi.")
-     # Tüm sonuçları yazdır
-    results = mycursor.fetchall()
-    if len(results) > 0:
-        for result in results:
-            tc = result[0]
-            gsm = result[1]
+cursor = db.cursor()
+cursor.execute(f"SELECT * FROM secmen WHERE TC = '{tc}'")
+result = cursor.fetchone()
 
-            print(f"TC: {tc}")
-            time.sleep(5)
+
+with open("sonuc.txt", "a", encoding="utf-8") as f:
+    if result:
+        adresil = result[11]
+        adresilce = result[12]
+        mahalle = result[13]
+        cadde = result[14]
+        daireno = result[15]
+        kapino = result[16]
+        engel = result[17]
+        f.write(f"Kendi: TC : {tc} ADRES İL : {adresil}  ADRES İLÇE : {adresilce} MAHALLE: {mahalle} CADDE {cadde} DAİRE NO: {daireno} KAPI NO: {kapino} ENGELİ: {engel}\n")
+        print(f"Kendi: TC : {tc} ADRES İL : {adresil}  ADRES İLÇE : {adresilce} MAHALLE: {mahalle} CADDE {cadde} DAİRE NO: {daireno} KAPI NO: {kapino} ENGELİ: {engel}")
     else:
-        print("Eşleşen veri yok.")
+        f.write(f"{tc} için sonuç bulunamadı.\n")
+        print(f"{tc} için sonuç bulunamadı.")
 
-except mysql.connector.errors.ProgrammingError:
-    print("Hata: Geçersiz sorgu.")
-except Exception as e:
-    print("Hata:", e)
+# Bağlantıyı kapat
+db.close()
