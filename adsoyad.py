@@ -40,19 +40,22 @@ try:
             tc = kayit[1]
             adi = kayit[2]
             soyadi = kayit[3]
-            baba_adi = kayit[6]
-            ana_adi = kayit[5]
-            dogum_tarihi = kayit[4]
-            nufus_il = kayit[7]
-            nufus_ilce = kayit[8]
-            uyruk = kayit[9]
+            dogum_tarihi = kayit[4] 
+            nufus_il = kayit[5]
+            nufus_ilce = kayit[6]
+            ana_adi = kayit[7]           
+            ana_tc = kayit[8]           
+            baba_adi = kayit[9]
+            baba_tc = kayit[10]
+            uyruk = kayit[11]
+
             
-            dosya.write(f"TC:{tc}, ADI:{adi}, SOYADI:{soyadi}, BABA ADI:{uyruk}, ANNE ADI:{nufus_il}, "
-                        f"DOĞUM TARIHI:{dogum_tarihi}, NUFUS İL:{ana_adi}, NUFUS İLÇE:{baba_adi}, ANNE TC:{nufus_ilce}\n".encode())
+            dosya.write(f"TC:{tc}, ADI:{adi}, SOYADI:{soyadi}, DOĞUM TARIHI:{dogum_tarihi}, NUFUS İL:{nufus_il}, NUFUS İLÇE:{nufus_ilce}"
+                        f"ANNE ADI:{ana_adi}, ANNE TC:{ana_tc}, BABA ADI:{baba_adi}, BABA TC:{baba_tc}, UYRUK:{uyruk}\n".encode())
             
 
-            print(f"TC:{tc}, ADI:{adi}, SOYADI:{soyadi}, BABA ADI:{uyruk}, ANNE ADI:{nufus_il}, "
-                f"DOĞUM TARİHİ:{dogum_tarihi}, NUFUS İL:{ana_adi}, NUFUS İLÇE:{baba_adi}, ANNE TC:{nufus_ilce}\n".encode())    
+            print(f"TC:{tc}, ADI:{adi}, SOYADI:{soyadi}, DOĞUM TARIHI:{dogum_tarihi}, NUFUS İL:{nufus_il}, NUFUS İLÇE:{nufus_ilce}"
+                        f"ANNE ADI:{ana_adi}, ANNE TC:{ana_tc}, BABA ADI:{baba_adi}, BABA TC:{baba_tc}, UYRUK:{uyruk}\n".encode())  
 
     print(f"Veriler {dosya_adi} dosyasına kaydedildi.")
     
