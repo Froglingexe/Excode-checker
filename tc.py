@@ -20,7 +20,7 @@ cursor.execute(f"SELECT * FROM 101m WHERE TC = '{tc}'")
 result = cursor.fetchone()
 
 
-with open("sonuc.txt", "a", encoding="utf-8") as f:
+with open("tcsorgu.txt", "a", encoding="utf-8") as f:
     if result:
         adi = result[2]
         soyadi = result[3]
