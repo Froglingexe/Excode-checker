@@ -1,7 +1,7 @@
 
 # Python Checker 
 
-Merhaba projeyi kisaca açıklamak gerekirse gayet hızlı çalışan bir panel diyebilirsiniz. Datalari bulmak size kalmış. Gayet basit bir kod eğer oto güncelleme kodunu silmezseniz sürekli olarak güncel tutmaya çalışacağım, yeni şeyler ekleyerek.
+Merhaba projeyi kısaca açıklamak gerekirse gayet hızlı çalışan bir panel diyebilirsiniz. Datalari bulmak size kalmış. Gayet basit bir kod eğer oto güncelleme kodunu silmezseniz sürekli olarak güncel tutmaya çalışacağım, yeni şeyler ekleyerek.
 
 ## Bilgisayarınızda Çalıştırın
 
