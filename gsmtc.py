@@ -1,48 +1,54 @@
 import mysql.connector
-import time
 
+# Veritabanı bağlantısı için gerekli bilgileri girin
 mydb = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
     database="avea"
 )
+
 # Cursor oluştur
 mycursor = mydb.cursor()
 
-gsm = input("GSM giriniz: ")
 
-dosya_adi = database + "_" + gsm + ".txt"
+if mydb.is_connected():
+    print("NOT: GSM Sorgunuzun çalışması için database klasörünüzün ve '.frm' dosyalarınızın adını avea olarak değiştirmeniz gerekmektedir")
 
-# Verileri veritabanında ara ve sonucu yazdır
+# Kullanıcıdan girdileri al
+gsm = input("GSM Numarasını giriniz: ")
+
+# Verilerin yazılacağı dosyanın adını oluştur
+dosya_adi = gsm + ".txt"
+
+# Verileri veritabanında ara ve dosyaya yaz
 try:
-    # GSM ile eşleşen kaydı seç
-    sql = f"SELECT * FROM {frmname} WHERE GSM = '{gsm}'"
+    if gsm:
+        sql = f"SELECT * FROM avea WHERE GSM = '{gsm}'"
+    else:
+        sql = f"SELECT * FROM avea WHERE GSM = '{gsm}'"
+
+
 
     # Sorguyu çalıştır
     mycursor.execute(sql)
 
     # Sonuçları dosyaya yaz
     with open(dosya_adi, "wb") as dosya:
-        for i in mycursor:
-            tc = i[0]
+        for kayit in mycursor:
+            tc = kayit[1]
             
-            dosya.write(f"TC:{tc}, GSM: {gsm}\n".encode())
+            dosya.write(f"TC:{tc}, GSM:{gsm}\n".encode())
             
-    print(f"Gsm {dosya_adi} dosyasına kaydedildi.")
-     # Tüm sonuçları yazdır
-    results = mycursor.fetchall()
-    if len(results) > 0:
-        for result in results:
-            tc = result[0]
-            gsm = result[1]
 
-            print(f"TC: {tc}")
-            time.sleep(5)
-    else:
-        print("Eşleşen veri yok.")
+            print(f"TC:{tc}, GSM:{gsm}\n".encode())    
 
+    print(f"Veriler {dosya_adi} dosyasına kaydedildi.")
+    
 except mysql.connector.errors.ProgrammingError:
     print("Hata: Geçersiz sorgu.")
 except Exception as e:
     print("Hata:", e)
+
+# Bağlantıyı kapat
+mydb.close()
