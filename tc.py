@@ -32,8 +32,8 @@ with open("tcsorgu.txt", "a", encoding="utf-8") as f:
         baba_adi = result[9]
         baba_tc = result[10]
         uyruk = result[11]
-        f.write(f"Kendi: TC : {tc} ADI : {adi}  SOYADI : {soyadi} DOGUM TARIHI: {dogum_tarihi} NUFUSU: {nufus_yeri} ILCESI: {ilce} Annesi: {anne_adi} Annesinin TCsi: {anne_tc} Babasi: {baba_adi} Babasinin TCsi: {baba_tc} UYRUGU: {uyruk}\n")
-        print(f"Kendi: TC : {tc} ADI : {adi}  SOYADI : {soyadi} DOGUM TARIHI: {dogum_tarihi} NUFUSU: {nufus_yeri} ILCESI: {ilce} Annesi: {anne_adi} Annesinin TCsi: {anne_tc} Babasi: {baba_adi} Babasinin TCsi: {baba_tc} UYRUGU: {uyruk}")
+        f.write(f"Kendi: TC : {tc} ADI : {adi}  SOYADI : {soyadi} DOĞUM TARİHİ: {dogum_tarihi} NÜFUS İL: {nufus_yeri} NÜFÜS İLÇE: {ilce} ANNE ADI: {anne_adi} ANNE TC: {anne_tc} BABA ADI: {baba_adi} BABA TC: {baba_tc} UYRUK: {uyruk}\n")
+        print(f"Kendi: TC : {tc} ADI : {adi}  SOYADI : {soyadi} DOĞUM TARİHİ: {dogum_tarihi} NÜFUS İL: {nufus_yeri} NÜFÜS İLÇE: {ilce} ANNE ADI: {anne_adi} ANNE TC: {anne_tc} BABA ADI: {baba_adi} BABA TC: {baba_tc} UYRUK: {uyruk}")
     else:
         f.write(f"{tc} için sonuç bulunamadı.\n")
         print(f"{tc} için sonuç bulunamadı.")
