@@ -1,54 +1,51 @@
 import mysql.connector
-import time
 
 # Veritabanı bağlantısı için gerekli bilgileri girin
-database = input("GSM Databaseinizin ismini girin (Ornek: hacerdedegsm, 120mgsm): ")
-frmname = input("GSM Databaseinizin frm ismini girin (Ornek: gsm.frm, 120mgsm.frm): ")
-
-mydb = mysql.connector.connect(
+db = mysql.connector.connect(
     host="localhost",
     user="root",
     password="",
-    database= database
+    database="avea"
 )
+
 # Cursor oluştur
-mycursor = mydb.cursor()
+mycursor = db.cursor()
 
-tc = input("TC giriniz: ")
 
-dosya_adi = database + "_" + tc + ".txt"
+if db.is_connected():
+    print("NOT: GSM Sorgunuzun çalışması için database klasörünüzün ve '.frm' dosyalarınızın adını avea olarak değiştirmeniz gerekmektedir.")
 
-# Verileri veritabanında ara ve sonucu yazdır
+# Kullanıcıdan girdileri al
+tc = input("TC Numarasını giriniz: ")
+
+# Verilerin yazılacağı dosyanın adını oluştur
+dosya_adi = "gsm" + ".txt"
+
+# Verileri veritabanında ara ve dosyaya yaz
 try:
-    # GSM ile eşleşen kaydı seç
-    sql = f"SELECT * FROM {frmname} WHERE TC = '{tc}'"
+    if tc:
+        sql = f"SELECT * FROM avea WHERE TC = '{tc}'"
+    else:
+        sql = f"SELECT * FROM avea WHERE TC = '{tc}'"
+
+
 
     # Sorguyu çalıştır
     mycursor.execute(sql)
 
     # Sonuçları dosyaya yaz
     with open(dosya_adi, "wb") as dosya:
-        for i in mycursor:
-            tc = i[0]
-            gsm = i[1]
+        for kayit in mycursor:
+            gsm = kayit[2]
             
-            dosya.write(f"GSM:{gsm}, TC: {tc}\n".encode())
-    print(f"Gsm {dosya_adi} dosyasına kaydedildi.")
+            dosya.write(f"GSM:{gsm}, TC:{tc}\n".encode())
 
-     # Tüm sonuçları yazdır
-    results = mycursor.fetchall()
-    if len(results) > 0:
-        for result in results:
-            tc = result[0]
-            gsm = result[1]
-
-            print(f"GSM: {gsm}")
-            time.sleep(5)
-    else:
-        print("Eşleşen veri yok.")
-
-
+    print(f"Veriler {dosya_adi} dosyasına kaydedildi.")
+    
 except mysql.connector.errors.ProgrammingError:
     print("Hata: Geçersiz sorgu.")
 except Exception as e:
     print("Hata:", e)
+
+# Bağlantıyı kapat
+db.close()
