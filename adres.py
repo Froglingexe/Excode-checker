@@ -16,7 +16,7 @@ tc = input("Lütfen TC kimlik numarasını girin: ")
 
 
 cursor = db.cursor()
-cursor.execute(f"SELECT * FROM secmen WHERE TC = '{tc}'")
+cursor.execute(f"SELECT * FROM secmen2015 WHERE TC = '{tc}'")
 result = cursor.fetchone()
 
 
