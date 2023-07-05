@@ -97,31 +97,32 @@ while True:
         consoleclear()
         print(stage(f"Menu Dahilinde yeni .py dosyalari eklendi tekrardan githubdan indirin.", "x"))
         print(stage(f"1 - Ad Soyad Sorgu", "!"))
-        print(stage(f"2 - GSM'den TC Sorgu", "!"))
-        print(stage(f"3 - TC Sorgu", "!"))
-        print(stage(f"4 - Aile Sorgu", "!"))
+        print(stage(f"2 - TC Sorgu", "!"))
+        print(stage(f"3 - Aile Sorgu", "!"))
+        print(stage(f"4 - GSM'den TC Sorgu", "!"))
         print(stage(f"5 - TC'den GSM Sorgu", "!"))
         print(stage(f"6 - Adres Sorgu", "!"))    
-        print(stage(f"8 - Discord", "!"))
-        print(stage(f"9 - Youtube", "!"))
+        print(stage(f"7 - Discord", "!"))
+        print(stage(f"8 - Youtube", "!"))
         secim = input("Seçiminiz: ")
 
     if secim == "1":
         subprocess.run(["python", "adsoyad.py"])
     elif secim == "2":
-        subprocess.run(["python", "gsmtc.py"])
-    elif secim == "3":
         subprocess.run(["python", "tc.py"])
-    elif secim == "4":
+    elif secim == "3":
         subprocess.run(["python", "aile.py"])
+    elif secim == "4":
+        subprocess.run(["python", "gsmtc.py"])
     elif secim == "5":
         subprocess.run(["python", "tcgsm.py"])
-    elif secim == "9":
-        webbrowser.open("https://www.youtube.com/@codexecuter")
     elif secim == "6":
         subprocess.run(["python", "adres.py"])
-    elif secim == "8":
+    elif secim == "7":
         webbrowser.open("https://discord.gg/101m")
+    elif secim == "8":
+        webbrowser.open("https://www.youtube.com/@codexecuter")
+
     else:
         consoleclear()
         print("Hatalı seçim.")
