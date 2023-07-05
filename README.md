@@ -1,26 +1,26 @@
 
 # Python Checker 
 
-Merhaba projeyi kisaca aciklamak gerekirse gayet hizli calisan bir panel diyebilirsiniz datalari bulmak size kalmis gayet basit bir kod eger oto guncelleme kodunu silmezseniz surekli olarak guncel tutmaya calisacagim yeni seyler ekleyerek.
+Merhaba projeyi kisaca açıklamak gerekirse gayet hızlı çalışan bir panel diyebilirsiniz. Datalari bulmak size kalmış. Gayet basit bir kod eğer oto güncelleme kodunu silmezseniz sürekli olarak güncel tutmaya çalışacağım, yeni şeyler ekleyerek.
 
 ## Bilgisayarınızda Çalıştırın
 
 Pythonu Indirin
 
 ```bash
-  installpython.bat'i baslatin ve bitmesini bekleyin
+  installpython.bat'i başlatın ve bitmesini bekleyin
 ```
 
 Modulleri Indirin
 
 ```bash
-  installreq.bat'i baslatin ve bitmesini bekleyin
+  installreq.bat'i başlatın ve bitmesini bekleyin
 ```
 
 Baslatin
 
 ```bash
-  py pythonchecker.py yazarak baslatin
+  py pythonchecker.py yazarak başlatın
 ```
 
   
@@ -32,15 +32,15 @@ Destek için discord.gg/101m adresine katilabilirsiniz .
 ## Özellikler
 
 - Ad Soyad, GSM , TC, Aile Sorgu
-- Hizlandirilmis Calisma ( Az Kod Cok Islev )
+- Hizlandirilmis Calisma ( Az Kod Çok İşlev )
 - CMD Ekraninda kolay kullanim
-- Acik kaynak kodlu gelistirilmeye acik.
+- Açık kaynak kodlu geliştirilmeye açık.
 - Adresi Rastgele Uretiyor.
   
 ## Hatalar Ve Cozumleri
 
-- termcolor hatasi: pip install termcolor
-- pystyle hatasi : pip install pystyle.
-- mysql hatasi : pip install mysql, pip install mysql.connector
+- termcolor hatası: pip install termcolor
+- pystyle hatası : pip install pystyle.
+- mysql hatası : pip install mysql, pip install mysql.connector
 
   
