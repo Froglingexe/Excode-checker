@@ -102,8 +102,10 @@ while True:
         print(stage(f"4 - GSM'den TC Sorgu", "!"))
         print(stage(f"5 - TC'den GSM Sorgu", "!"))
         print(stage(f"6 - Adres Sorgu", "!"))    
-        print(stage(f"7 - Discord", "!"))
-        print(stage(f"8 - Youtube", "!"))
+        print(stage(f"7 - Facebook Sorgu", "!"))    
+        print(stage(f"8 - TTnet Sorgu", "!"))    
+        print(stage(f"9 - Discord", "!"))
+        print(stage(f"10 - Youtube", "!"))
         secim = input("Seçiminiz: ")
 
     if secim == "1":
@@ -119,8 +121,12 @@ while True:
     elif secim == "6":
         subprocess.run(["python", "adres.py"])
     elif secim == "7":
-        webbrowser.open("https://discord.gg/101m")
+        subprocess.run(["python",  "facebook.py"])
     elif secim == "8":
+        subprocess.run(["python",  "ttnet.py"])
+    elif secim == "9":
+        webbrowser.open("https://discord.gg/101m")
+    elif secim == "10":
         webbrowser.open("https://www.youtube.com/@codexecuter")
 
     else:
