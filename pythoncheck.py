@@ -90,7 +90,7 @@ urllist= []
     
 while True:
     
-    url = "github.com/Froglingexe/Excode-checker/blob/main"
+    url = "https://github.com/Froglingexe/Excode-checker/blob/main"
     if url in urllist:
         pass
     else:
